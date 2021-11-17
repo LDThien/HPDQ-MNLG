@@ -1,0 +1,63 @@
+﻿<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-dialog" id="form" style=" width: 73%; margin-top: 9.5%; margin-left: 22%; ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="ModalTitle"></h5>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body" style="width:100%;">
+                <figure class="highcharts-figure">
+                    <div id="container" style="width: 100%;"></div>
+
+                </figure>
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'THÔNG SỐ HÓA HỌC'
+                        },
+                        subtitle: {
+                            text: 'NHÀ MÁY LUYỆN GANG'
+                        },
+                        xAxis: {
+                            categories: ['Lò Cao 1', 'Lò Cao 2', 'Lò Cao 3', 'Lò Cao 4']
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Temperature (°C)'
+                            }
+                        },
+                        plotOptions: {
+                            line: {
+                                dataLabels: {
+                                    enabled: true
+                                },
+                                enableMouseTracking: false
+                            }
+                        },
+                        series: [{
+                            name: 'C',
+                            data: [7.0, 6.9, 9.5, 14.5]
+                        }, {
+                            name: 'Si',
+                            data: [3.9, 4.2, 5.7, 8.5]
+                        }, {
+                            name: 'Mn',
+                            data: [3.0, 6.3, 8.6, 10.2]
+                        }]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,83 @@
+﻿<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-dialog" id="form" style="width: 73%; margin-top: 9.5%; margin-left: 22%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="ModalTitle"></h5>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body" style="width:100%;">
+                <figure class="highcharts-figure">
+                    <div id="container1" style="width:100%;"></div>
+                </figure>
+                <script>
+                    Highcharts.chart('container1', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'THÔNG SỐ VẬT LÝ'
+                        },
+                        subtitle: {
+                            text: 'NHÀ MÁY LUYỆN GANG'
+                        },
+                        xAxis: {
+                            categories: [
+                                'Lò Cao 1',
+                                'Lò Cao 2',
+                                'Lò Cao 3',
+                                'Lò cao 4'
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Rainfall (mm)'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Tokyo',
+                            data: [49.9, 71.5, 106.4, 129.2]
+
+                        }, {
+                            name: 'New York',
+                            data: [83.6, 78.8, 98.5, 93.4]
+
+                        }, {
+                            name: 'London',
+                            data: [48.9, 38.8, 39.3, 41.4]
+
+                        }, {
+                            name: 'Berlin',
+                            data: [42.4, 33.2, 34.5, 39.7]
+
+                        }]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+}
+
+
+

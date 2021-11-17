@@ -1,0 +1,32 @@
+﻿@using DA_MNLG.Models
+@model StrongparametersValidation
+
+@using (Html.BeginForm())
+
+{
+    var aa = Model;
+    
+<div class="card-img-top">
+    <a class="btn btn-default pull-right" href="#" onclick="ExportToExcel()"><i class="fas fa-file-excel"></i>&nbsp;&nbsp;Xuất báo cáo</a>
+</div>
+    <div class="container">
+        <div class="row" style="margin-top: 10px;">
+            <h5 class="text-center" style="font-size: 11px; margin-top: 10px;">Từ ngày</h5>
+            <div class="col-md-3 pull-left">
+                @Html.TextBox("begind", null, new { @id = "begind", @type = "date", @class = "form-control" })
+            </div>
+            <h5 class="text-center" style="font-size: 11px; margin-top: 10px;">Đến ngày</h5>
+            <div class="col-md-3">
+                @Html.TextBox("endd", null, new { @id = "endd", @type = "date", @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                <label for="date_end" style="visibility:hidden">End Date</label>
+                <input type="submit" value="Tìm kiếm" class="btn btn-primary" id="btnsearch" />
+            </div>
+        </div>
+        <div class="row">
+            <h1></h1>
+        </div>
+    </div>
+}
+

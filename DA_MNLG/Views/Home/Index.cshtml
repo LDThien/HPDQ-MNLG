@@ -1,0 +1,327 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["msgSuccess"] != null)
+{
+    @Html.Raw(TempData["msgSuccess"])
+}
+@if (TempData["msgError"] != null)
+{
+    @Html.Raw(TempData["msgError"])
+}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-home icon-gradient bg-grow-early">
+                        </i>
+                    </div>
+                    <div>
+                        <h4>Trang chủ</h4>
+                        <div class="page-title-subheading">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div style="display: flex;flex-direction:row;">
+            <div style="width:50%;margin-right:20px;">
+                <figure class="highcharts-figure">
+                    <div>
+                        <i style="height:20px;" id="btn-show" class="fa fa-eye pull-right">&nbsp;</i>
+                        <div class="modal fade" id="myModal" role="dialog" data-url='@Url.Action("Show","Home")'></div>
+                    </div>
+                    <div id="container" style="width: 100%;"></div>
+
+                </figure>
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            alignTicks: false,
+                            type: 'line'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: 'THÔNG SỐ HÓA HỌC'
+                        },
+                        subtitle: {
+                            text: 'NHÀ MÁY LUYỆN GANG'
+                        },
+                        xAxis: {
+                            categories: ['Lò Cao 1', 'Lò Cao 2', 'Lò Cao 3', 'Lò Cao 4']
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Temperature (°C)'
+                            }
+                        },
+                        plotOptions: {
+                            line: {
+                                dataLabels: {
+                                    enabled: true
+                                },
+                                enableMouseTracking: false
+                            }
+                        },
+                        series: [{
+                            name: 'C',
+                            data: [7.0, 6.9, 9.5, 14.5]
+                        }, {
+                            name: 'Si',
+                            data: [3.9, 4.2, 5.7, 8.5]
+                        }, {
+                            name: 'Mn',
+                            data: [3.0, 6.3, 8.6, 10.2]
+                        }]
+                    });
+                </script>
+            </div>
+            <div style="width:50%;">
+                <figure class="highcharts-figure">
+                    <div>
+                        <i style="height:20px;" id="btn-showdata" class="fa fa-eye pull-right">&nbsp;</i>
+                        <div class="modal fade" id="myModaldata" role="dialog" data-url='@Url.Action("Showdata","Home")'></div>
+                    </div>
+                    <div id="container1" style="width:100%;"></div>
+                </figure>
+                <script>
+                    Highcharts.chart('container1', {
+                        chart: {
+                            type: 'column'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: 'THÔNG SỐ VẬT LÝ'
+                        },
+                        subtitle: {
+                            text: 'NHÀ MÁY LUYỆN GANG'
+                        },
+                        xAxis: {
+                            categories: [
+                                'Lò Cao 1',
+                                'Lò Cao 2',
+                                'Lò Cao 3',
+                                'Lò cao 4'
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Rainfall (mm)'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Tokyo',
+                            data: [49.9, 71.5, 106.4, 129.2]
+
+                        }, {
+                            name: 'New York',
+                            data: [83.6, 78.8, 98.5, 93.4]
+
+                        }, {
+                            name: 'London',
+                            data: [48.9, 38.8, 39.3, 41.4]
+
+                        }, {
+                            name: 'Berlin',
+                            data: [42.4, 33.2, 34.5, 39.7]
+
+                        }]
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div style="display: flex;flex-direction:row;">
+            <div style="width:50%;margin-right:20px;">
+                <figure class="highcharts-figure">
+                    <div>
+                        <i style="height:20px;" id="btn-show" class="fa fa-eye pull-right">&nbsp;</i>
+                        <div class="modal fade" id="myModal" role="dialog" data-url='@Url.Action("Show","Home")'></div>
+                    </div>
+                    <div id="container2" style="width: 100%;"></div>
+
+                </figure>
+                <script>
+                    Highcharts.chart('container2', {
+                        chart: {
+                            type: 'line'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: 'THÔNG SỐ HÓA HỌC'
+                        },
+                        subtitle: {
+                            text: 'NHÀ MÁY LUYỆN GANG'
+                        },
+                        xAxis: {
+                            categories: ['Lò Cao 1', 'Lò Cao 2', 'Lò Cao 3', 'Lò Cao 4']
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Temperature (°C)'
+                            }
+                        },
+                        plotOptions: {
+                            line: {
+                                dataLabels: {
+                                    enabled: true
+                                },
+                                enableMouseTracking: false
+                            }
+                        },
+                        series: [{
+                            name: 'C',
+                            data: [7.0, 6.9, 9.5, 14.5]
+                        }, {
+                            name: 'Si',
+                            data: [3.9, 4.2, 5.7, 8.5]
+                        }, {
+                            name: 'Mn',
+                            data: [3.0, 6.3, 8.6, 10.2]
+                        }]
+                    });
+                </script>
+            </div>
+            <div style="width:50%;">
+                <figure class="highcharts-figure">
+                    <div>
+                        <i style="height:20px;" id="btn-show" class="fa fa-eye pull-right">&nbsp;</i>
+                        <div class="modal fade" id="myModal" role="dialog" data-url='@Url.Action("Show","Home")'></div>
+                    </div>
+                    <div id="container3" style="width:100%;"></div>
+                </figure>
+                <script>
+                    Highcharts.chart('container3', {
+                        chart: {
+                            type: 'column'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: 'THÔNG SỐ VẬT LÝ'
+                        },
+                        subtitle: {
+                            text: 'NHÀ MÁY LUYỆN GANG'
+                        },
+                        xAxis: {
+                            categories: [
+                                'Lò Cao 1',
+                                'Lò Cao 2',
+                                'Lò Cao 3',
+                                'Lò cao 4'
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Rainfall (mm)'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Tokyo',
+                            data: [49.9, 71.5, 106.4, 129.2]
+
+                        }, {
+                            name: 'New York',
+                            data: [83.6, 78.8, 98.5, 93.4]
+
+                        }, {
+                            name: 'London',
+                            data: [48.9, 38.8, 39.3, 41.4]
+
+                        }, {
+                            name: 'Berlin',
+                            data: [42.4, 33.2, 34.5, 39.7]
+
+                        }]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="app-wrapper-footer">
+        <div class="app-footer">
+            <div class="app-footer__inner">
+                <div class="row" style="width:100%;">
+                    <div class="col-sm-6 pull-left">
+                        Copyright © @DateTime.Now.Year Nhà máy luyện gang
+                    </div>
+                    <div class="col-sm-6 pull-right">
+                        Công ty cổ phần Thép Hòa Phát Dung Quất
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#btn-show').click(function () {
+        var url = $('#myModal').data('url');
+        $.get(url, function (data) {
+            $("#myModal").html(data);
+            $("#ModalTitle").html("Thông số hóa học");
+            $("#myModal").modal('show');
+        });
+    });
+
+    $('#btn-showdata').click(function () {
+        var url = $('#myModaldata').data('url');
+        $.get(url, function (data) {
+            $("#myModaldata").html(data);
+            $("#ModalTitle").html("Thông số vật lý");
+            $("#myModaldata").modal('show');
+        });
+    });
+</script>

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TS_NMLGANG_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CA_TABLE">
+          <Key>
+            <PropertyRef Name="IDCa" />
+          </Key>
+          <Property Name="IDCa" Type="int" Nullable="false" />
+          <Property Name="TenCa" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="LOCAO_TABLE">
+          <Key>
+            <PropertyRef Name="IDLoCao" />
+          </Key>
+          <Property Name="IDLoCao" Type="int" Nullable="false" />
+          <Property Name="TenLoCao" Type="char" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TS_NMLGANG_DB.dbo.NMLGANGTABLE_THONGSOHOAHOCME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NMLGANGTABLE_THONGSOHOAHOCME">
+          <Key>
+            <PropertyRef Name="IDHH" />
+          </Key>
+          <Property Name="IDHH" Type="int" Nullable="false" />
+          <Property Name="TPHH_C" Type="float" />
+          <Property Name="TPHH_Si" Type="float" />
+          <Property Name="TPHH_Mn" Type="float" />
+          <Property Name="TPHH_S" Type="float" />
+          <Property Name="TPHH_P" Type="float" />
+          <Property Name="TPHH_Ti" Type="float" />
+          <Property Name="TPHH_SiO2" Type="float" />
+          <Property Name="TPHH_Al2O3" Type="float" />
+          <Property Name="TPHH_CaO" Type="float" />
+          <Property Name="TPHH_MgO" Type="float" />
+          <Property Name="TPHH_TiO2" Type="float" />
+          <Property Name="TPHH_Ri" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TS_NMLGANG_DB.dbo.NMLGANGTABLE_THONGSOME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NMLGANGTABLE_THONGSOME">
+          <Key>
+            <PropertyRef Name="IDM" />
+          </Key>
+          <Property Name="IDM" Type="int" Nullable="false" />
+          <Property Name="thoiGian" Type="datetime" />
+          <Property Name="caID" Type="int" />
+          <Property Name="meGang" Type="int" />
+          <Property Name="soThung" Type="int" />
+          <Property Name="sanRaGang" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TS_NMLGANG_DB.dbo.NMLGANGTABLE_THONGSOVATLYME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NMLGANGTABLE_THONGSOVATLYME">
+          <Key>
+            <PropertyRef Name="IDVL" />
+          </Key>
+          <Property Name="IDVL" Type="int" Nullable="false" />
+          <Property Name="thoiGianRaGang" Type="int" />
+          <Property Name="gianCach" Type="int" />
+          <Property Name="thoiGianRaXi" Type="int" />
+          <Property Name="tiLeTGGangXi" Type="float" />
+          <Property Name="doSauLoGang" Type="float" />
+          <Property Name="luongBunBit" Type="float" />
+          <Property Name="sanLuong" Type="float" />
+          <Property Name="nhietDoGang" Type="float" />
+          <Property Name="khoiLuong" Type="float" />
+          <Property Name="loaiGang" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="TS_NMLGANG_DBModelStoreContainer">
+          <EntitySet Name="CA_TABLE" EntityType="Self.CA_TABLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOCAO_TABLE" EntityType="Self.LOCAO_TABLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NMLGANGTABLE_THONGSOHOAHOCME" EntityType="Self.NMLGANGTABLE_THONGSOHOAHOCME" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[IDHH] AS [IDHH], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_C] AS [TPHH_C], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Si] AS [TPHH_Si], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Mn] AS [TPHH_Mn], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_S] AS [TPHH_S], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_P] AS [TPHH_P], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Ti] AS [TPHH_Ti], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_SiO2] AS [TPHH_SiO2], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Al2O3] AS [TPHH_Al2O3], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_CaO] AS [TPHH_CaO], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_MgO] AS [TPHH_MgO], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_TiO2] AS [TPHH_TiO2], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Ri] AS [TPHH_Ri]
+    FROM [dbo].[NMLGANGTABLE_THONGSOHOAHOCME] AS [NMLGANGTABLE_THONGSOHOAHOCME]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NMLGANGTABLE_THONGSOME" EntityType="Self.NMLGANGTABLE_THONGSOME" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NMLGANGTABLE_THONGSOME].[IDM] AS [IDM], 
+    [NMLGANGTABLE_THONGSOME].[thoiGian] AS [thoiGian], 
+    [NMLGANGTABLE_THONGSOME].[caID] AS [caID], 
+    [NMLGANGTABLE_THONGSOME].[meGang] AS [meGang], 
+    [NMLGANGTABLE_THONGSOME].[soThung] AS [soThung], 
+    [NMLGANGTABLE_THONGSOME].[sanRaGang] AS [sanRaGang]
+    FROM [dbo].[NMLGANGTABLE_THONGSOME] AS [NMLGANGTABLE_THONGSOME]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NMLGANGTABLE_THONGSOVATLYME" EntityType="Self.NMLGANGTABLE_THONGSOVATLYME" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NMLGANGTABLE_THONGSOVATLYME].[IDVL] AS [IDVL], 
+    [NMLGANGTABLE_THONGSOVATLYME].[thoiGianRaGang] AS [thoiGianRaGang], 
+    [NMLGANGTABLE_THONGSOVATLYME].[gianCach] AS [gianCach], 
+    [NMLGANGTABLE_THONGSOVATLYME].[thoiGianRaXi] AS [thoiGianRaXi], 
+    [NMLGANGTABLE_THONGSOVATLYME].[tiLeTGGangXi] AS [tiLeTGGangXi], 
+    [NMLGANGTABLE_THONGSOVATLYME].[doSauLoGang] AS [doSauLoGang], 
+    [NMLGANGTABLE_THONGSOVATLYME].[luongBunBit] AS [luongBunBit], 
+    [NMLGANGTABLE_THONGSOVATLYME].[sanLuong] AS [sanLuong], 
+    [NMLGANGTABLE_THONGSOVATLYME].[nhietDoGang] AS [nhietDoGang], 
+    [NMLGANGTABLE_THONGSOVATLYME].[khoiLuong] AS [khoiLuong], 
+    [NMLGANGTABLE_THONGSOVATLYME].[loaiGang] AS [loaiGang]
+    FROM [dbo].[NMLGANGTABLE_THONGSOVATLYME] AS [NMLGANGTABLE_THONGSOVATLYME]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TS_NMLGANG_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CA_TABLE">
+          <Key>
+            <PropertyRef Name="IDCa" />
+          </Key>
+          <Property Name="IDCa" Type="Int32" Nullable="false" />
+          <Property Name="TenCa" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LOCAO_TABLE">
+          <Key>
+            <PropertyRef Name="IDLoCao" />
+          </Key>
+          <Property Name="IDLoCao" Type="Int32" Nullable="false" />
+          <Property Name="TenLoCao" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="TS_NMLGANG_DBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CA_TABLE" EntityType="Self.CA_TABLE" />
+          <EntitySet Name="LOCAO_TABLE" EntityType="Self.LOCAO_TABLE" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="NMLGANGTABLE_THONGSOHOAHOCME" EntityType="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOHOAHOCME" />
+          <EntitySet Name="NMLGANGTABLE_THONGSOME" EntityType="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOME" />
+          <EntitySet Name="NMLGANGTABLE_THONGSOVATLYME" EntityType="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOVATLYME" />
+        </EntityContainer>
+        <EntityType Name="NMLGANGTABLE_THONGSOHOAHOCME">
+          <Key>
+            <PropertyRef Name="IDHH" />
+          </Key>
+          <Property Name="IDHH" Type="Int32" Nullable="false" />
+          <Property Name="TPHH_C" Type="Double" />
+          <Property Name="TPHH_Si" Type="Double" />
+          <Property Name="TPHH_Mn" Type="Double" />
+          <Property Name="TPHH_S" Type="Double" />
+          <Property Name="TPHH_P" Type="Double" />
+          <Property Name="TPHH_Ti" Type="Double" />
+          <Property Name="TPHH_SiO2" Type="Double" />
+          <Property Name="TPHH_Al2O3" Type="Double" />
+          <Property Name="TPHH_CaO" Type="Double" />
+          <Property Name="TPHH_MgO" Type="Double" />
+          <Property Name="TPHH_TiO2" Type="Double" />
+          <Property Name="TPHH_Ri" Type="Double" />
+        </EntityType>
+        <EntityType Name="NMLGANGTABLE_THONGSOME">
+          <Key>
+            <PropertyRef Name="IDM" />
+          </Key>
+          <Property Name="IDM" Type="Int32" Nullable="false" />
+          <Property Name="thoiGian" Type="DateTime" Precision="3" />
+          <Property Name="caID" Type="Int32" />
+          <Property Name="meGang" Type="Int32" />
+          <Property Name="soThung" Type="Int32" />
+          <Property Name="sanRaGang" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NMLGANGTABLE_THONGSOVATLYME">
+          <Key>
+            <PropertyRef Name="IDVL" />
+          </Key>
+          <Property Name="IDVL" Type="Int32" Nullable="false" />
+          <Property Name="thoiGianRaGang" Type="Int32" />
+          <Property Name="gianCach" Type="Int32" />
+          <Property Name="thoiGianRaXi" Type="Int32" />
+          <Property Name="tiLeTGGangXi" Type="Double" />
+          <Property Name="doSauLoGang" Type="Double" />
+          <Property Name="luongBunBit" Type="Double" />
+          <Property Name="sanLuong" Type="Double" />
+          <Property Name="nhietDoGang" Type="Double" />
+          <Property Name="khoiLuong" Type="Double" />
+          <Property Name="loaiGang" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TS_NMLGANG_DBModelStoreContainer" CdmEntityContainer="TS_NMLGANG_DBEntities1">
+          <EntitySetMapping Name="CA_TABLE">
+            <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.CA_TABLE">
+              <MappingFragment StoreEntitySet="CA_TABLE">
+                <ScalarProperty Name="IDCa" ColumnName="IDCa" />
+                <ScalarProperty Name="TenCa" ColumnName="TenCa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOCAO_TABLE">
+            <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.LOCAO_TABLE">
+              <MappingFragment StoreEntitySet="LOCAO_TABLE">
+                <ScalarProperty Name="IDLoCao" ColumnName="IDLoCao" />
+                <ScalarProperty Name="TenLoCao" ColumnName="TenLoCao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NMLGANGTABLE_THONGSOHOAHOCME">
+            <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOHOAHOCME">
+              <MappingFragment StoreEntitySet="NMLGANGTABLE_THONGSOHOAHOCME">
+                <ScalarProperty Name="TPHH_Ri" ColumnName="TPHH_Ri" />
+                <ScalarProperty Name="TPHH_TiO2" ColumnName="TPHH_TiO2" />
+                <ScalarProperty Name="TPHH_MgO" ColumnName="TPHH_MgO" />
+                <ScalarProperty Name="TPHH_CaO" ColumnName="TPHH_CaO" />
+                <ScalarProperty Name="TPHH_Al2O3" ColumnName="TPHH_Al2O3" />
+                <ScalarProperty Name="TPHH_SiO2" ColumnName="TPHH_SiO2" />
+                <ScalarProperty Name="TPHH_Ti" ColumnName="TPHH_Ti" />
+                <ScalarProperty Name="TPHH_P" ColumnName="TPHH_P" />
+                <ScalarProperty Name="TPHH_S" ColumnName="TPHH_S" />
+                <ScalarProperty Name="TPHH_Mn" ColumnName="TPHH_Mn" />
+                <ScalarProperty Name="TPHH_Si" ColumnName="TPHH_Si" />
+                <ScalarProperty Name="TPHH_C" ColumnName="TPHH_C" />
+                <ScalarProperty Name="IDHH" ColumnName="IDHH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NMLGANGTABLE_THONGSOME">
+            <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOME">
+              <MappingFragment StoreEntitySet="NMLGANGTABLE_THONGSOME">
+                <ScalarProperty Name="sanRaGang" ColumnName="sanRaGang" />
+                <ScalarProperty Name="soThung" ColumnName="soThung" />
+                <ScalarProperty Name="meGang" ColumnName="meGang" />
+                <ScalarProperty Name="caID" ColumnName="caID" />
+                <ScalarProperty Name="thoiGian" ColumnName="thoiGian" />
+                <ScalarProperty Name="IDM" ColumnName="IDM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NMLGANGTABLE_THONGSOVATLYME">
+            <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOVATLYME">
+              <MappingFragment StoreEntitySet="NMLGANGTABLE_THONGSOVATLYME">
+                <ScalarProperty Name="loaiGang" ColumnName="loaiGang" />
+                <ScalarProperty Name="khoiLuong" ColumnName="khoiLuong" />
+                <ScalarProperty Name="nhietDoGang" ColumnName="nhietDoGang" />
+                <ScalarProperty Name="sanLuong" ColumnName="sanLuong" />
+                <ScalarProperty Name="luongBunBit" ColumnName="luongBunBit" />
+                <ScalarProperty Name="doSauLoGang" ColumnName="doSauLoGang" />
+                <ScalarProperty Name="tiLeTGGangXi" ColumnName="tiLeTGGangXi" />
+                <ScalarProperty Name="thoiGianRaXi" ColumnName="thoiGianRaXi" />
+                <ScalarProperty Name="gianCach" ColumnName="gianCach" />
+                <ScalarProperty Name="thoiGianRaGang" ColumnName="thoiGianRaGang" />
+                <ScalarProperty Name="IDVL" ColumnName="IDVL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TS_NMLGANG_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CA_TABLE">
+    <Key>
+      <PropertyRef Name="IDCa" />
+    </Key>
+    <Property Name="IDCa" Type="int" Nullable="false" />
+    <Property Name="TenCa" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="LOCAO_TABLE">
+    <Key>
+      <PropertyRef Name="IDLoCao" />
+    </Key>
+    <Property Name="IDLoCao" Type="int" Nullable="false" />
+    <Property Name="TenLoCao" Type="char" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TS_NMLGANG_DB.dbo.NMLGANGTABLE_THONGSOHOAHOCME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NMLGANGTABLE_THONGSOHOAHOCME">
+    <Key>
+      <PropertyRef Name="IDHH" />
+    </Key>
+    <Property Name="IDHH" Type="int" Nullable="false" />
+    <Property Name="TPHH_C" Type="float" />
+    <Property Name="TPHH_Si" Type="float" />
+    <Property Name="TPHH_Mn" Type="float" />
+    <Property Name="TPHH_S" Type="float" />
+    <Property Name="TPHH_P" Type="float" />
+    <Property Name="TPHH_Ti" Type="float" />
+    <Property Name="TPHH_SiO2" Type="float" />
+    <Property Name="TPHH_Al2O3" Type="float" />
+    <Property Name="TPHH_CaO" Type="float" />
+    <Property Name="TPHH_MgO" Type="float" />
+    <Property Name="TPHH_TiO2" Type="float" />
+    <Property Name="TPHH_Ri" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TS_NMLGANG_DB.dbo.NMLGANGTABLE_THONGSOME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NMLGANGTABLE_THONGSOME">
+    <Key>
+      <PropertyRef Name="IDM" />
+    </Key>
+    <Property Name="IDM" Type="int" Nullable="false" />
+    <Property Name="thoiGian" Type="datetime" />
+    <Property Name="caID" Type="int" />
+    <Property Name="meGang" Type="int" />
+    <Property Name="soThung" Type="int" />
+    <Property Name="sanRaGang" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TS_NMLGANG_DB.dbo.NMLGANGTABLE_THONGSOVATLYME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NMLGANGTABLE_THONGSOVATLYME">
+    <Key>
+      <PropertyRef Name="IDVL" />
+    </Key>
+    <Property Name="IDVL" Type="int" Nullable="false" />
+    <Property Name="thoiGianRaGang" Type="int" />
+    <Property Name="gianCach" Type="int" />
+    <Property Name="thoiGianRaXi" Type="int" />
+    <Property Name="tiLeTGGangXi" Type="float" />
+    <Property Name="doSauLoGang" Type="float" />
+    <Property Name="luongBunBit" Type="float" />
+    <Property Name="sanLuong" Type="float" />
+    <Property Name="nhietDoGang" Type="float" />
+    <Property Name="khoiLuong" Type="float" />
+    <Property Name="loaiGang" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="TS_NMLGANG_DBModelStoreContainer">
+    <EntitySet Name="CA_TABLE" EntityType="Self.CA_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOCAO_TABLE" EntityType="Self.LOCAO_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NMLGANGTABLE_THONGSOHOAHOCME" EntityType="Self.NMLGANGTABLE_THONGSOHOAHOCME" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[IDHH] AS [IDHH], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_C] AS [TPHH_C], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Si] AS [TPHH_Si], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Mn] AS [TPHH_Mn], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_S] AS [TPHH_S], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_P] AS [TPHH_P], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Ti] AS [TPHH_Ti], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_SiO2] AS [TPHH_SiO2], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Al2O3] AS [TPHH_Al2O3], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_CaO] AS [TPHH_CaO], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_MgO] AS [TPHH_MgO], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_TiO2] AS [TPHH_TiO2], 
+    [NMLGANGTABLE_THONGSOHOAHOCME].[TPHH_Ri] AS [TPHH_Ri]
+    FROM [dbo].[NMLGANGTABLE_THONGSOHOAHOCME] AS [NMLGANGTABLE_THONGSOHOAHOCME]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NMLGANGTABLE_THONGSOME" EntityType="Self.NMLGANGTABLE_THONGSOME" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NMLGANGTABLE_THONGSOME].[IDM] AS [IDM], 
+    [NMLGANGTABLE_THONGSOME].[thoiGian] AS [thoiGian], 
+    [NMLGANGTABLE_THONGSOME].[caID] AS [caID], 
+    [NMLGANGTABLE_THONGSOME].[meGang] AS [meGang], 
+    [NMLGANGTABLE_THONGSOME].[soThung] AS [soThung], 
+    [NMLGANGTABLE_THONGSOME].[sanRaGang] AS [sanRaGang]
+    FROM [dbo].[NMLGANGTABLE_THONGSOME] AS [NMLGANGTABLE_THONGSOME]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NMLGANGTABLE_THONGSOVATLYME" EntityType="Self.NMLGANGTABLE_THONGSOVATLYME" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NMLGANGTABLE_THONGSOVATLYME].[IDVL] AS [IDVL], 
+    [NMLGANGTABLE_THONGSOVATLYME].[thoiGianRaGang] AS [thoiGianRaGang], 
+    [NMLGANGTABLE_THONGSOVATLYME].[gianCach] AS [gianCach], 
+    [NMLGANGTABLE_THONGSOVATLYME].[thoiGianRaXi] AS [thoiGianRaXi], 
+    [NMLGANGTABLE_THONGSOVATLYME].[tiLeTGGangXi] AS [tiLeTGGangXi], 
+    [NMLGANGTABLE_THONGSOVATLYME].[doSauLoGang] AS [doSauLoGang], 
+    [NMLGANGTABLE_THONGSOVATLYME].[luongBunBit] AS [luongBunBit], 
+    [NMLGANGTABLE_THONGSOVATLYME].[sanLuong] AS [sanLuong], 
+    [NMLGANGTABLE_THONGSOVATLYME].[nhietDoGang] AS [nhietDoGang], 
+    [NMLGANGTABLE_THONGSOVATLYME].[khoiLuong] AS [khoiLuong], 
+    [NMLGANGTABLE_THONGSOVATLYME].[loaiGang] AS [loaiGang]
+    FROM [dbo].[NMLGANGTABLE_THONGSOVATLYME] AS [NMLGANGTABLE_THONGSOVATLYME]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using DA_MNLG.Models
+@model PagedList.IPagedList<StrongparametersValidation>
+@using PagedList.Mvc
+
+<link href="~/Content/assets/css/PagedList.css" rel="stylesheet" />
+<script src="~/Content/assets/Chonse/chosen.jquery.js"></script>
+<link href="~/Content/assets/Chonse/chosen.css" rel="stylesheet" />
+
+@if (TempData["msgSuccess"] != null)
+{
+    @Html.Raw(TempData["msgSuccess"])
+}
+@if (TempData["msgError"] != null)
+{
+    @Html.Raw(TempData["msgError"])
+}
+
+
+
+<div class="app-main__outer">
+    <div class="app-main__inner">
+
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-id icon-gradient bg-grow-early">
+                        </i>
+                    </div>
+                    <div>
+                       THÔNG SỐ MẼ GANG
+                        <div class="page-title-subheading">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="row">
+                <div class="card col-lg-12">
+                    <div class="card-header">
+                        <span style=" width: 100%;">
+                            @{Html.RenderAction("_ToolSearch", "Strongparameters");}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th width="30px">STT</th>
+                                        <th> thoiGian </th>
+                                        <th> ca </th>
+                                        <th> meGang </th>
+                                        <th> soThung </th>
+                                        <th> sanRaGang </th>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int pageno = (int)Model.PageNumber;
+                                        int itemperpage = (int)Model.PageSize;
+                                        int RowNo = ((pageno - 1) * itemperpage) + 1;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center"> @RowNo@{RowNo++;}</td>
+                                            <td>@item.thoiGian.ToString("dd-MM-yyyy")</td>
+                                            <td>@item.caID</td>
+                                            <td>@item.meGang</td>
+                                            <td>@item.soThung</td>
+                                            <td>@item.sanRaGang</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="pager">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", "Strongparameters", new { page }))
+                                <span class="pageoff">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="layoutAuthentication_footer">
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Nhà máy luyện gang @DateTime.Now.Year</div>
+                    <div>
+                        <a href="https://www.hoaphat.com.vn/">Công ty CP Thép Hòa Phát Dung Quất</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+</div>
+
+<script>
+    //search by time
+    $("#btnsearch").on('click', function () {
+        var begind = Date.parse($('#begind').val());
+        var endd = Date.parse($('#endd').val());
+        if (begind > endd) {
+            alert('Vui lòng chọn từ ngày phải nhỏ hơn đến ngày');
+            return false;
+        } else if (begind > Date.now()) {
+            alert('Vui lòng chọn từ ngày phải nhỏ hơn ngày hiện tại');
+            return false;
+        }
+        else if (endd > Date.now()) {
+            alert('Vui lòng chọn đến ngày phải nhỏ hơn ngày hiện tại');
+            return false;
+        }
+        else {
+            return true;
+        }
+    });
+
+    //Show datetime current
+    $(document).ready(function () {
+        var dateNewFormat, onlyDate, today = new Date();
+
+        dateNewFormat = today.getFullYear() + '-';
+        if (today.getMonth() >= 9) {
+
+            dateNewFormat += (today.getMonth() + 1);
+        }
+        else {
+            dateNewFormat += '0' + (today.getMonth() + 1);
+        }
+
+        onlyDate = today.getDate();
+        if (onlyDate.toString().length == 2) {
+
+            dateNewFormat += "-" + onlyDate;
+        }
+        else {
+            dateNewFormat += '-0' + onlyDate;
+        }
+        if ($('#begind').val() == '') {
+            $('#begind').val(dateNewFormat);
+        }
+        if ($('#endd').val() == '') {
+            $('#endd').val(dateNewFormat);
+        }
+    });
+    function ExportToExcel() {
+        var begind = Date.parse($('#begind').val());
+        var endd = Date.parse($('#endd').val());
+        var data = $("#ExportToExcel").serialize();
+        if (begind > endd) {
+            alert('Vui lòng chọn từ ngày phải nhỏ hơn đến ngày');
+            return false;
+        } else if (begind > Date.now()) {
+            alert('Vui lòng chọn từ ngày phải nhỏ hơn ngày hiện tại');
+            return false;
+        }
+        else if (endd > Date.now()) {
+            alert('Vui lòng chọn đến ngày phải nhỏ hơn ngày hiện tại');
+            return false;
+        }
+        else {
+            window.location.href = '/Strongparameters/ExportToExcel?begind=' + $('#begind').val() + "&endd=" + $('#endd').val();
+        }
+    }
+</script>
+

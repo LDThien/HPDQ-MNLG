@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using DA_MNLG.Models
+@model PagedList.IPagedList<PhysicalparametersValidation>
+@using PagedList.Mvc
+
+<link href="~/Content/assets/css/PagedList.css" rel="stylesheet" />
+<script src="~/Content/assets/Chonse/chosen.jquery.js"></script>
+<link href="~/Content/assets/Chonse/chosen.css" rel="stylesheet" />
+
+@if (TempData["msgSuccess"] != null)
+{
+    @Html.Raw(TempData["msgSuccess"])
+}
+@if (TempData["msgError"] != null)
+{
+    @Html.Raw(TempData["msgError"])
+}
+
+
+
+<div class="app-main__outer">
+    <div class="app-main__inner">
+
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-id icon-gradient bg-grow-early">
+                        </i>
+                    </div>
+                    <div>
+                        THÔNG SỐ VẬT LÝ
+                        <div class="page-title-subheading">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="row">
+                <div class="card col-lg-12">
+                    <div class="card-header">
+                        <span class="m-l-auto">
+                            <button type="button" id="btn-Export" class="btn btn-success m-l-auto"><i class="fa fa-file-excel-o">&nbsp;</i>&nbsp;Xuất File Excel</button>
+                            <a class="modal fade" id="myModalimport" role="dialog" data-url='@Url.Action("ExportToExcel","ConfirmEStudy" ,new{ id =  @Url.RequestContext.RouteData.Values["id"]})'></a>
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th width="30px">STT</th>
+                                        <th> thoiGianRaGang </th>
+                                        <th> gianCach </th>
+                                        <th> thoiGianRaXi </th>
+                                        <th> tiLeTGGangXi </th>
+                                        <th> doSauLoGang </th>
+                                        <th> luongBunBit </th>
+                                        <th> sanLuong </th>
+                                        <th> nhietDoGang </th>
+                                        <th> khoiLuong </th>
+                                        <th> loaiGang </th>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int pageno = (int)Model.PageNumber;
+                                        int itemperpage = (int)Model.PageSize;
+                                        int RowNo = ((pageno - 1) * itemperpage) + 1;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td class="text-center"> @RowNo@{RowNo++;}</td>
+                                        <td>@item.thoiGianRaGang</td>
+                                        <td>@item.gianCach</td>
+                                        <td>@item.thoiGianRaXi</td>
+                                        <td>@item.tiLeTGGangXi</td>
+                                        <td>@item.doSauLoGang</td>
+                                        <td>@item.luongBunBit</td>
+                                        <td>@item.sanLuong</td>
+                                        <td>@item.nhietDoGang</td>
+                                        <td>@item.khoiLuong</td>
+                                        <td>@item.loaiGang</td>
+
+
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="pager">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", "Physicalparameters", new { page }))
+                                <span class="pageoff">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="layoutAuthentication_footer">
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Nhà máy luyện gang @DateTime.Now.Year</div>
+                    <div>
+                        <a href="https://www.hoaphat.com.vn/">Công ty CP Thép Hòa Phát Dung Quất</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+</div>
+
+
+

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TS_NMLGANG_DBModelStoreContainer" CdmEntityContainer="TS_NMLGANG_DBEntities1">
+    <EntitySetMapping Name="CA_TABLE">
+      <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.CA_TABLE">
+        <MappingFragment StoreEntitySet="CA_TABLE">
+          <ScalarProperty Name="IDCa" ColumnName="IDCa" />
+          <ScalarProperty Name="TenCa" ColumnName="TenCa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOCAO_TABLE">
+      <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.LOCAO_TABLE">
+        <MappingFragment StoreEntitySet="LOCAO_TABLE">
+          <ScalarProperty Name="IDLoCao" ColumnName="IDLoCao" />
+          <ScalarProperty Name="TenLoCao" ColumnName="TenLoCao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NMLGANGTABLE_THONGSOHOAHOCME">
+      <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOHOAHOCME">
+        <MappingFragment StoreEntitySet="NMLGANGTABLE_THONGSOHOAHOCME">
+          <ScalarProperty Name="TPHH_Ri" ColumnName="TPHH_Ri" />
+          <ScalarProperty Name="TPHH_TiO2" ColumnName="TPHH_TiO2" />
+          <ScalarProperty Name="TPHH_MgO" ColumnName="TPHH_MgO" />
+          <ScalarProperty Name="TPHH_CaO" ColumnName="TPHH_CaO" />
+          <ScalarProperty Name="TPHH_Al2O3" ColumnName="TPHH_Al2O3" />
+          <ScalarProperty Name="TPHH_SiO2" ColumnName="TPHH_SiO2" />
+          <ScalarProperty Name="TPHH_Ti" ColumnName="TPHH_Ti" />
+          <ScalarProperty Name="TPHH_P" ColumnName="TPHH_P" />
+          <ScalarProperty Name="TPHH_S" ColumnName="TPHH_S" />
+          <ScalarProperty Name="TPHH_Mn" ColumnName="TPHH_Mn" />
+          <ScalarProperty Name="TPHH_Si" ColumnName="TPHH_Si" />
+          <ScalarProperty Name="TPHH_C" ColumnName="TPHH_C" />
+          <ScalarProperty Name="IDHH" ColumnName="IDHH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NMLGANGTABLE_THONGSOME">
+      <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOME">
+        <MappingFragment StoreEntitySet="NMLGANGTABLE_THONGSOME">
+          <ScalarProperty Name="sanRaGang" ColumnName="sanRaGang" />
+          <ScalarProperty Name="soThung" ColumnName="soThung" />
+          <ScalarProperty Name="meGang" ColumnName="meGang" />
+          <ScalarProperty Name="caID" ColumnName="caID" />
+          <ScalarProperty Name="thoiGian" ColumnName="thoiGian" />
+          <ScalarProperty Name="IDM" ColumnName="IDM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NMLGANGTABLE_THONGSOVATLYME">
+      <EntityTypeMapping TypeName="TS_NMLGANG_DBModel.NMLGANGTABLE_THONGSOVATLYME">
+        <MappingFragment StoreEntitySet="NMLGANGTABLE_THONGSOVATLYME">
+          <ScalarProperty Name="loaiGang" ColumnName="loaiGang" />
+          <ScalarProperty Name="khoiLuong" ColumnName="khoiLuong" />
+          <ScalarProperty Name="nhietDoGang" ColumnName="nhietDoGang" />
+          <ScalarProperty Name="sanLuong" ColumnName="sanLuong" />
+          <ScalarProperty Name="luongBunBit" ColumnName="luongBunBit" />
+          <ScalarProperty Name="doSauLoGang" ColumnName="doSauLoGang" />
+          <ScalarProperty Name="tiLeTGGangXi" ColumnName="tiLeTGGangXi" />
+          <ScalarProperty Name="thoiGianRaXi" ColumnName="thoiGianRaXi" />
+          <ScalarProperty Name="gianCach" ColumnName="gianCach" />
+          <ScalarProperty Name="thoiGianRaGang" ColumnName="thoiGianRaGang" />
+          <ScalarProperty Name="IDVL" ColumnName="IDVL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
